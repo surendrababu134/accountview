@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>WEB API example</title>
+	<script src="jquery-1.11.3.min.js"></script>
+	<script src="main.js"></script>
+    <link rel="stylesheet" type="text/css" href="main.css" />
+</head>
+<body>
+	<h2>Step 1: Fill in the data of your app.</h2>
+	<!-- <div class='smallwidth'>Redirect URL</div> <input type="text" id="redirectURL"><br> -->
+	<div class='smallwidth'>API key		</div> <input type="text" id="apiKey"><br>
+	<div class='smallwidth'>API secret	</div> <input type="text" id="apiSecret"><br>
+	<br>
+
+	<div id='authUrl'>
+		<h2>Step 2: Autorize the app</h2>
+		Retrieve the authorization URL and visit it in your browser.<br>
+		<button id='GetAuthorizationURLButton'>Connect</button><br>
+		<!-- <a target="iframe_a" id='authorizationLink'><span id="validateValue">Redirection Not Done</span></a><br> -->
+		<iframe height="300px" width="100%" id="iFrameTarget" name="iframe_a">
+		</iframe>
+	</div>
+	
+	<!-- <div id='gettoken'>
+		<h2>Step 3: Retrieve access token</h2>
+		<p>Once you have authorized the app, you are redirected to the URL you specified above. In the redirect URL you can find a 'code' argument.
+		Fill that 'code' into field below.<p>
+		<div class='smallwidth'>Code grant</div> <input type="text" id="codegrant"><br><br>
+
+		<button id='retrieveTokenButton'>Retrieve token</button><br>
+		<textarea id='token' rows="4" cols="100" placeholder="Here comes your token..."></textarea>
+	</div>
+	
+	<div id='performapirequest'>
+		<h2>Step 4: Perform API request</h2>
+		<p>We now can perform API requests. This example page can only perform GET requests. Use the datadictionary or API builder to get a GET request URL</p>
+		<textarea id='requestURL' rows="4" cols="100" placeholder="Fill in a GET request URL"></textarea>
+		<br>
+		<br>
+
+		<div class='smallwidth'>Select a company:</div>  
+		<select id="companyID">
+			<option disabled>Choose a company</option>
+		</select>
+		<br>
+		<button id='executeRquest'>Execute request</button>
+	</div>
+	
+	<div>
+		<h2>The result</h2>
+		<textarea id='result' rows="30" cols="100" readonly></textarea>
+	</div> -->
+</body>
+</html>
