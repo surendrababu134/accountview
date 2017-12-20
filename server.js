@@ -5,6 +5,14 @@ var express = require('express'),
 const request = require('request');
 
 app.listen(port);
+var path = require('path');
+
+app.use(express.static('public'));
+
+// viewed at http://localhost:8080
+app.get('/', function(req, res) {
+    res.sendFile(path.join(__dirname + '/index.html'));
+});
 
 console.log('RESTful API server started on: ' + port);
 
@@ -28,7 +36,7 @@ app.get('/api/callback', function (req, res) {
 
   AUTHORIZATION_CODE = req.url.split('code=')[1];
 
-  request({
+  /*request({
     url: baseURL + 'api/v3/token',
     method: 'POST',
     headers: {
@@ -41,11 +49,19 @@ app.get('/api/callback', function (req, res) {
     if (err) { return console.log(err); }
     console.log(res.statusCode);
     console.log(body);
-  });
+  });*/
+  console.log(AUTHORIZATION_CODE);
 
   res.send(AUTHORIZATION_CODE);
 
-})
+});
+
+app.get('/api/getCodeGrant',function(req, res){
+  console.log('skjdfhjshfjksdf');
+  console.log(AUTHORIZATION_CODE);
+  res.send({'message':AUTHORIZATION_CODE});
+});
+
 
 
 

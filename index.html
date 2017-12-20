@@ -2,9 +2,8 @@
 <html lang="en">
 <head>
 	<title>WEB API example</title>
-	<script src="jquery-1.11.3.min.js"></script>
-	<script src="main.js"></script>
-    <link rel="stylesheet" type="text/css" href="main.css" />
+	
+    <link rel="stylesheet" type="text/css" href="/main.css" />
 </head>
 <body>
 	<h2>Step 1: Fill in the data of your app.</h2>
@@ -22,12 +21,12 @@
 		</iframe>
 	</div>
 	
-	<!-- <div id='gettoken'>
+	<div id='gettoken'>
 		<h2>Step 3: Retrieve access token</h2>
 		<p>Once you have authorized the app, you are redirected to the URL you specified above. In the redirect URL you can find a 'code' argument.
 		Fill that 'code' into field below.<p>
 		<div class='smallwidth'>Code grant</div> <input type="text" id="codegrant"><br><br>
-
+	
 		<button id='retrieveTokenButton'>Retrieve token</button><br>
 		<textarea id='token' rows="4" cols="100" placeholder="Here comes your token..."></textarea>
 	</div>
@@ -38,7 +37,7 @@
 		<textarea id='requestURL' rows="4" cols="100" placeholder="Fill in a GET request URL"></textarea>
 		<br>
 		<br>
-
+	
 		<div class='smallwidth'>Select a company:</div>  
 		<select id="companyID">
 			<option disabled>Choose a company</option>
@@ -50,6 +49,8 @@
 	<div>
 		<h2>The result</h2>
 		<textarea id='result' rows="30" cols="100" readonly></textarea>
-	</div> -->
+	</div>
+	<script src="/jquery-1.11.3.min.js"></script>
+	<script src="/main.js"></script>
 </body>
 </html>
