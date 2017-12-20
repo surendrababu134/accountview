@@ -20,15 +20,15 @@ $(document).ready(function() {
 	$("#GetAuthorizationURLButton").click(function () {
 		var key = $('#apiKey').val();
 		var secret = $('#apiSecret').val();
-		// var redirectURL = $('#redirectURL').val(); 
-		var redirectURL = 'http://billing.thgroep.nl/api/accountview/'
+		// var redirectURL = $('#redirectURL').val();
+		var redirectURL = 'http://localhost:8000/api/callback'
 		redirectURL = encodeURIComponent(redirectURL); //Redirect URL needs to be URL encoded
-		
+
 		authorizationURL = baseURL + "ams/authorize.aspx" +
 							"?response_type=code" +
 							"&client_id=" + key +
 							"&redirect_uri=" + redirectURL +
-							"&scope=readaccountviewdata";					
+							"&scope=readaccountviewdata";
 		//$('#authorizationLink').attr('href', authorizationURL);
 		//$('#validateValue').html('Please Connect');
 		$('#iFrameTarget').attr('src',authorizationURL);
@@ -38,7 +38,7 @@ $(document).ready(function() {
 	//console.log(document.getElementById('iFrameTarget').contentWindow.document.body.innerHTML);
 
 
-	
+
 	//Retrieves a token via an AJAX call and places the result on screen.
 	$("#retrieveTokenButton").click(function () {
 		var redirectURL = $('#redirectURL').val();
@@ -46,7 +46,7 @@ $(document).ready(function() {
 		var secret = $('#apiSecret').val();
 		var codegrant = $('#codegrant').val();
 		codegrant = decodeURIComponent(codegrant); //Code grant needs to be URL decoded
-		
+
 		$.ajax({
 			type: 'POST',
 			url: baseURL + "api/v3/token",
@@ -65,11 +65,11 @@ $(document).ready(function() {
 			alert(JSON.stringify(data));
 		});
 	});
-	
+
 	//Retrieve companies and place them in a dropdown list
 	function GetCompanies(){
 		var token = $('#token').html();
-		
+
 		$.ajax({
 			type: 'GET',
 			url: baseURL + "api/v3/Companies",
@@ -79,23 +79,23 @@ $(document).ready(function() {
 			}
 		}).done(function (data) {
 			//add comapnies to dropdown
-			for (var i = 0; i < data.length; i++) { 
+			for (var i = 0; i < data.length; i++) {
 				$('#companyID')
 					.append($("<option></option>")
 					.attr("value",data[i].Id)
-					.text(data[i].Description)); 
+					.text(data[i].Description));
 			}
 		}).fail(function (data, textStatus){
 			alert(JSON.stringify(data));
-		});	
+		});
 	}
-	
+
 	//Perform the API request
 	$("#executeRquest").click(function () {
 		var requestURL = $('#requestURL').val();
 		var companyId = $('#companyID').val();
 		var token = $('#token').html();
-		
+
 		$.ajax({
 			type: 'GET',
 			url: requestURL,
@@ -108,6 +108,6 @@ $(document).ready(function() {
 			$('#result').html(JSON.stringify(data, undefined, 2));
 		}).fail(function (data, textStatus){
 			alert(JSON.stringify(data));
-		});	
+		});
 	});
 });
